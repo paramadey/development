@@ -1,10 +1,11 @@
 @import "~bpk-mixins";
-/* variables */
-$color_1_800:#37474f; /* bluegrey800 */
-$color_1_900:#263238; /* bluegrey900 */
-$color_1_500:#607D8B; /* bluegrey(00 */
-$color_1_50:#ECEFF1;  /* bluegrey50 */
 
+/* variables should be declared in _variables.scss */
+$color_1_800:#37474f;
+$color_1_900:#263238; 
+$color_1_500:#607D8B; 
+$color_1_50:#ECEFF1;  
+$base-theme-color:#01c2d7;
 
 $color_2_900:#FFFFFF;  /* white */
 
@@ -19,7 +20,7 @@ $color_2_900:#FFFFFF;  /* white */
 }
 /*couleurs */
 
-nav-narrow {    background-color:  #ffffff;  color: #01C2D7; }
+nav-narrow {    background-color:  #ffffff;  color: $base-theme-color; }
 main{ background-color:rgba($color_1_500, 1); color:$color_1_500;}
 footer { background-color: rgba($color_1_900, 1) ; color:$color_1_50}
 h1 { background-color: rgba($color_1_500, 0.5); color:$color_1_50}
@@ -167,11 +168,13 @@ article{
   flex: 4;
 }
 .card-body-col-2 {
-  flex: 5;
-  margin-top: 2vh;
+  // flex: 5;
+  flex: 7;
+  //margin-top: 2vh;
 }
 .card-body-col-3 {
-  flex: 50;
+  // flex: 50;
+  flex:20;
 }
 .card-body-col-4 {
   flex: 4;
@@ -191,7 +194,7 @@ article{
 .topnav a {
   float: left;
   display: block;
-  color:    #01C2D7;
+  color:    $base-theme-color;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -199,6 +202,13 @@ article{
 }
 .big-font{
   font-size: calc(10px + 3vh);
+}
+.big-icon{
+  height: 7vh;
+  width: 7vw;
+}
+.alert-icon{
+  margin-top: 0.7em;
 }
 .button {
   background-color: #62be66;
@@ -221,7 +231,9 @@ article{
 .topnav .icon {
   display: none;
 }
-
+.theme-color-font{
+  color: $base-theme-color;
+}
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -301,6 +313,53 @@ article{
   width: 2vw !important;
   margin-top: 2vh;
 }
+//Spinner CSS
+.hourglass{
+  display:block;
+  background:#d3d3d3;
+  margin:5em auto;
+  width:2em;
+  height:4em;
+  box-shadow:
+      inset #d3d3d3 0 0 0 0,
+      inset $base-theme-color 0 2em 0 0,
+      inset #d3d3d3 0 0 4em 0;
+  animation:hourglass 1s linear infinite;
+}
 
+.outer{
+  fill:$base-theme-color;
+}
+
+.middle{
+  fill:#d3d3d3;
+}
+
+@keyframes hourglass{
+  0%{
+      transform:rotate(0deg);
+      box-shadow:
+          inset #d3d3d3 0 0 0 0,
+          inset $base-theme-color 0 2em 0 0,
+          inset #d3d3d3 0 4em 0 0,
+          inset $base-theme-color 0 4em 0 0;
+  }
+  80%{
+      transform:rotate(0deg);
+      box-shadow:
+          inset #d3d3d3 0 2em 0 0,
+          inset $base-theme-color 0 2em 0 0,
+          inset #d3d3d3 0 2em 0 0,
+          inset $base-theme-color 0 4em 0 0;
+  }
+  100%{
+      transform:rotate(180deg);
+      box-shadow:
+          inset #d3d3d3 0 2em 0 0,
+          inset $base-theme-color 0 2em 0 0,
+          inset #d3d3d3 0 2em 0 0,
+          inset $base-theme-color 0 4em 0 0;
+  }
+}
 
 
